@@ -3044,6 +3044,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        target.numericOnly = target.creditCard || target.date || !!opts.numericOnly;
 
+	        target.locale = opts.locale || 'en-US';
 	        target.uppercase = !!opts.uppercase;
 	        target.lowercase = !!opts.lowercase;
 

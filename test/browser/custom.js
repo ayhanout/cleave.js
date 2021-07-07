@@ -154,4 +154,37 @@ describe('Custom input field', function () {
         cleave.setRawValue('ABCDEF');
         assert.equal(field.value, 'abc def ');
     });
+
+    it('should use locale uppercase option for TR ı', function () {
+        var cleave = new Cleave(field, {
+            uppercase: true,
+            blocks:    [3, 3, 3],
+            locale: 'tr'
+        });
+
+        cleave.setRawValue('ıııııı');
+        assert.equal(field.value, 'III III ');
+    });
+
+    it('should use locale uppercase option for TR i', function () {
+        var cleave = new Cleave(field, {
+            uppercase: true,
+            blocks:    [3, 3, 3],
+            locale: 'tr-TR'
+        });
+
+        cleave.setRawValue('iiiiii');
+        assert.equal(field.value, 'İİİ İİİ ');
+    });
+
+    it('should use locale uppercase option for EN', function () {
+        var cleave = new Cleave(field, {
+            uppercase: true,
+            blocks:    [3, 3, 3],
+            locale: 'en'
+        });
+
+        cleave.setRawValue('iiiiii');
+        assert.equal(field.value, 'III III ');
+    });
 });

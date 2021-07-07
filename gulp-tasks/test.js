@@ -4,7 +4,7 @@ var path = require('path');
 var should = require('should');
 var eslint = require('gulp-eslint');
 var gulpsync = require('gulp-sync')(gulp);
-var mochaPhantomJS = require('gulp-mocha-phantomjs');
+var mochaPhantomJS = require('gulp-mocha-chrome');
 
 var paths = {
     src:  './src',

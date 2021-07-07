@@ -300,8 +300,8 @@ Cleave.prototype = {
         value = pps.numericOnly ? Util.strip(value, /[^\d]/g) : value;
 
         // convert case
-        value = pps.uppercase ? value.toUpperCase() : value;
-        value = pps.lowercase ? value.toLowerCase() : value;
+        value = pps.uppercase ? owner.convertToUpper(value, pps.locale) : value;
+        value = pps.lowercase ? owner.convertToLower(value, pps.locale) : value;
 
         // prevent from showing prefix when no immediate option enabled with empty input value
         if (pps.prefix) {
@@ -482,7 +482,22 @@ Cleave.prototype = {
 
     toString: function () {
         return '[Cleave Object]';
+    },
+
+    convertToUpper: function(value, locale) {
+        if(locale != null)
+            return value.toLocaleUpperCase(locale);
+        
+        return value.toUpperCase();
+    },
+
+    convertToLower: function(value, locale) {
+        if(locale != null)
+            return value.toLocaleLowerCase(locale);
+    
+        return value.toLowerCase();
     }
+
 };
 
 Cleave.NumeralFormatter = require('../src/shortcuts/NumeralFormatter');
